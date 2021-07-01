@@ -24,31 +24,43 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-@font-face {
-  font-family: "iconfont"; /* Project id 2645327 */
-  src: url('//at.alicdn.com/t/font_2645327_kleaj73i7ar.woff2?t=1625125688388') format('woff2'),
-       url('//at.alicdn.com/t/font_2645327_kleaj73i7ar.woff?t=1625125688388') format('woff'),
-       url('//at.alicdn.com/t/font_2645327_kleaj73i7ar.ttf?t=1625125688388') format('truetype');
-}
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon--search1:before {
-  content: "\e601";
-}
-.navbar .navbar-fixed {
-  position: flexd;
-  top: 0;
-  left: 0;
-  z-index: 99;
+.tab {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
   width: 100%;
-  background-color: #f07373;
+  border-bottom: 1px #f5f5f5 solid;
+  background-color: #fff;
+  box-sizing: border-box;
 }
-.navbar .navbar-fixed .navbar-content {
+.tab .tab-scroll {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.tab .tab-scroll .tab-scroll_box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 45px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+.tab .tab-scroll .tab-scroll_box .tab-scroll_box_item {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  padding: 0 10px;
+  color: #333;
+  font-size: 14;
+}
+.tab .tab-icons {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -58,28 +70,15 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  padding: 0 15px;
-  height: 45px;
-  box-sizing: border-box;
+  width: 45px;
 }
-.navbar .navbar-fixed .navbar-content .navbar-search {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  padding: 0 10px;
-  width: 100%;
-  height: 30px;
-  border-radius: 30px;
-  background-color: #fff;
-}
-.navbar .navbar-fixed .navbar-content .navbar-search .navbar-search-icon {
-  margin-right: 5px;
-}
-.navbar .navbar-fixed .navbar-content .navbar-search .navbar-search-text {
-  font-size: 12px;
-  color: #999;
+.tab .tab-icons::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 1px;
+  background-color: #ddd;
 }
 

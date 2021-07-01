@@ -16,7 +16,7 @@
 				</view>
 			</view>
 		</view>
-		<view :style="{height:navBarHeight+'px'}"></view>
+		<!-- <view :style="{height: statusBarHeight+navBarHeight+'px'}"></view> -->
 	</view>
 </template>
 
@@ -31,13 +31,12 @@
 			};
 		},
 		created() {
-			//手机系统形象
-			let info = uni.getSystemInfoSync()
-			console.log(info)
-			//设置状态栏高度
+			// 获取手机系统信息
+			const info = uni.getSystemInfoSync()
+			// 设置状态栏高度
 			this.statusBarHeight = info.statusBarHeight
 			this.windowWidth = info.windowWidth
-			// h5 app mp-alipay 条件编译 只在微信小程序中编译
+			// h5 app mp-alipay
 			// #ifndef H5 || APP-PLUS || MP-ALIPAY
 			// 获取胶囊的位置
 			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
@@ -49,6 +48,7 @@
 			// #ifdef MP-ALIPAY
 			this.statusBarHeight = 0
 			// #endif
+			
 		} 
 	}
 </script>
@@ -73,10 +73,10 @@
 				.navbar-search{
 					display: flex;
 					align-items: center;
-					height: 30px;
+					padding: 0 10px;
 					width: 100%;
+					height: 30px;
 					border-radius: 30px;
-					padding: 0 15px;
 					background-color: #fff;
 					.navbar-search-icon{
 						// width: 10px;

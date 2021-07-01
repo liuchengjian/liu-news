@@ -170,13 +170,12 @@ var _default =
 
   },
   created: function created() {
-    //手机系统形象
+    // 获取手机系统信息
     var info = uni.getSystemInfoSync();
-    console.log(info);
-    //设置状态栏高度
+    // 设置状态栏高度
     this.statusBarHeight = info.statusBarHeight;
     this.windowWidth = info.windowWidth;
-    // h5 app mp-alipay 条件编译 只在微信小程序中编译
+    // h5 app mp-alipay
 
     // 获取胶囊的位置
     var menuButtonInfo = uni.getMenuButtonBoundingClientRect();
@@ -184,6 +183,7 @@ var _default =
     // (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏内的高度) = 导航栏的高度
     this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.statusBarHeight);
     this.windowWidth = menuButtonInfo.left;
+
 
 
 
