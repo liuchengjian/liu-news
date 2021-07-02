@@ -2,7 +2,9 @@
 	<view class="navbar">
 		<view class="navbar-fixed">
 			<!--状态栏-->
+			<!-- #ifndef MP-ALIPAY -->
 			<view :style="{height:statusBarHeight+'px'}"></view>
+			<!-- #endif -->
 			<!--导航栏内容-->
 			<view class="navbar-content" :style="{height:navBarHeight+'px',width:windowWidth+'px'}">
 				<view class="navbar-search">
@@ -26,8 +28,8 @@
 		data() {
 			return {
 				statusBarHeight: 20,
-				navBarHeight:45,
-				windowWidth:375
+				navBarHeight: 45,
+				windowWidth: 375,
 			};
 		},
 		created() {
