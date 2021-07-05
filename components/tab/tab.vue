@@ -24,6 +24,16 @@
 				default (){
 					return []
 				}
+			},
+			tabIndex:{
+				type:Number,
+				default:0,
+			}
+		},
+		//可以监听data,props值得变化
+		watch:{
+			tabIndex(newVal,oldVal){
+				this.activeIndex= newVal
 			}
 		},
 		data() {
@@ -35,7 +45,7 @@
 			clickTab(item,index){
 				this.activeIndex = index
 				//组件外调用自定义事件
-				this.$emit('tab',{data:item,index:index})
+				this.$emit('tab',{data:item},index)
 			}
 		}
 	}
