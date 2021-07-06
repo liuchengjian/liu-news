@@ -161,16 +161,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   name: "navbar",
+  props: {
+    isSearch: {
+      type: Boolean,
+      default: false } },
+
+
   data: function data() {
     return {
       statusBarHeight: 20,
       navBarHeight: 45,
-      windowWidth: 375 };
+      windowWidth: 375,
+      value: '' };
 
   },
+  methods: {
+    open: function open() {
+      if (this.isSearch) return;
+      uni.navigateTo({
+        url: '/pages/home-search/home-search' });
+
+    },
+    inputChange: function inputChange(e) {var
+      value = e.detail.value;
+      this.$emit('input', value);
+    },
+    onBack: function onBack() {
+      // uni.navigateBack({
+
+      // })
+      uni.switchTab({
+        url: '/pages/tabbar/index/index' });
+
+    } },
+
   created: function created() {
     // 获取手机系统信息
     var info = uni.getSystemInfoSync();

@@ -20,6 +20,6 @@ exports.main = async (event, context) => {
 	return  {
 		code:200,
 		msg:'更新状态成功',
-		data:userInfo
+		data:null
 	}
 };

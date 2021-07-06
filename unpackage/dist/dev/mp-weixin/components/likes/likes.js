@@ -169,7 +169,6 @@ var _default2 =
   },
   methods: {
     likeTap: function likeTap() {
-      this.like = !this.like;
       this.updateLikes();
     },
     updateLikes: function updateLikes() {var _this = this;
@@ -177,6 +176,7 @@ var _default2 =
       this.$api.update_like({
         article_id: this.item._id }).
       then(function (res) {
+        _this.like = !_this.like;
         uni.hideLoading();
         uni.showToast({
           title: _this.like ? '收藏成功' : '取消收藏',

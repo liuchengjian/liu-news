@@ -30,7 +30,6 @@
 		},
 		methods:{
 			likeTap(){
-				this.like = !this.like
 				this.updateLikes()
 			},
 			updateLikes(){
@@ -38,6 +37,7 @@
 				this.$api.update_like({
 					article_id:this.item._id
 				}).then((res)=>{
+					this.like = !this.like
 					uni.hideLoading()
 					uni.showToast({
 						title:this.like?'收藏成功':'取消收藏',

@@ -6,8 +6,13 @@
 			<view :style="{height:statusBarHeight+'px'}"></view>
 			<!-- #endif -->
 			<!--导航栏内容-->
-			<view class="navbar-content" :style="{height:navBarHeight+'px',width:windowWidth+'px'}">
-				<view class="navbar-search">
+			<view class="navbar-content" :class="{search:isSearch}" :style="{height:navBarHeight+'px',
+			width:windowWidth+'px'}" @click.stop="open">
+				<view v-if="isSearch" class="navbar-content__search-icons" @click="onBack">
+					<uni-icons type="back" size="22" color="#fff"></uni-icons>
+				</view>
+				<view v-if="!isSearch" class="navbar-search">
+					<!-- 非搜索页显示 -->
 					<view class="navbar-search-icon">
 						<uni-icons type="search" size="16" color="#999"></uni-icons>
 						<!-- <text class="iconfont icon--search1"></text> -->
@@ -15,6 +20,13 @@
 					<view class="navbar-search-text">
 						<text>{{'uni-app vue react'}}</text>
 					</view>
+				</view>
+				<view v-else class="navbar-search">
+					<!-- 搜索页显示 -->
+					<input class="navbar-search-text" type="text"
+					 v-mode="value" placeholder="请输入您要输入的内容"
+					 @input="inputChange"
+					 />
 				</view>
 			</view>
 		</view>
@@ -25,12 +37,39 @@
 <script>
 	export default {
 		name:"navbar",
+		props:{
+			isSearch:{
+				type:Boolean,
+				default:false
+			}
+		},
 		data() {
 			return {
 				statusBarHeight: 20,
 				navBarHeight: 45,
 				windowWidth: 375,
+				value:'',
 			};
+		},
+		methods:{
+			open(){
+				if(this.isSearch)return
+				uni.navigateTo({
+					url:'/pages/home-search/home-search'
+				})
+			},
+			inputChange(e){
+				const {value} = e.detail
+				this.$emit('input',value)
+			},
+			onBack(){
+				// uni.navigateBack({
+					
+				// })
+				uni.switchTab({
+					url:'/pages/tabbar/index/index'
+				})
+			}
 		},
 		created() {
 			// 获取手机系统信息
@@ -87,8 +126,19 @@
 						margin-right: 5px;
 					}
 					.navbar-search-text{
-						font-size: 12px;
+						width: 100%;
+						font-size: 14px;
 						color: #999;
+					}
+				}
+				&.search{
+					padding-left: 0;
+					.navbar-content__search-icons{
+						margin-left: 10px;
+						margin-right: 10px;
+					}
+					.navbar-search{
+						border-radius: 5px;
 					}
 				}
 			}
