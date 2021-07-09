@@ -76,7 +76,6 @@
 			clear(){
 				this.$store.dispatch('clearHistory')
 				//强制渲染界面
-				this.$forceUpdate()
 				uni.showToast({
 					title:"清空完成"
 				})

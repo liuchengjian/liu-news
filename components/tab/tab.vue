@@ -9,7 +9,7 @@
 				@click="clickTab(item,index)">{{item.name}}</view>
 			</view>
 		</scroll-view>
-		<view class="tab-icons">
+		<view class="tab-icons" @click="opens">
 			<uni-icons type="gear" size="26" color="#666"></uni-icons>
 		</view>
 	</view>
@@ -46,6 +46,11 @@
 				this.activeIndex = index
 				//组件外调用自定义事件
 				this.$emit('tab',{data:item},index)
+			},
+			opens(){
+				uni.navigateTo({
+					url:'/pages/home-label/home-label'
+				})
 			}
 		}
 	}

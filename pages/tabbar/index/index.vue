@@ -19,6 +19,12 @@
 			}
 		},
 		onLoad() {
+			uni.$on('labelChange',()=>{
+				this.tabList = []
+				this.tabIndex = 0
+				this.activeIndex = 0
+				this.getLabel()
+			})
 			this.getLabel()
 		},
 		methods: {
@@ -31,9 +37,7 @@
 			},
 			//调用云函数
 			getLabel(){
-				this.$api.getlabel({
-					name:'getlabel'
-				}).then((res)=>{
+				this.$api.getlabel().then((res)=>{
 					const {data} = res
 					data.unshift({
 						name:'全部'

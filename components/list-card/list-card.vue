@@ -90,7 +90,9 @@
 		},
 		methods:{
 			open(){
-				console.log('打开详情')
+				uni.navigateTo({
+					url:'/pages/home-detail/home-detail'
+				})
 			}
 		}
 	}

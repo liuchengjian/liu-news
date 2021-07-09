@@ -31,7 +31,9 @@
 		watch:{
 			tab(newVal,oldVal){
 				if(newVal.length===0) return
-					this.getList(this.activeIndex)
+				this.listCatchData = {}
+				this.load={}
+				this.getList(this.activeIndex)
 			}
 		},
 		//onLoad 在页面里面，created在组件中
