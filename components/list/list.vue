@@ -39,6 +39,11 @@
 		//onLoad 在页面里面，created在组件中
 		created(){
 			// this.getList(0)
+			uni.$on('undate_article',()=>{
+				this.listCatchData = {}
+				this.load={}
+				this.getList(this.activeIndex)
+			})
 		},
 		methods:{
 			loadmore(){

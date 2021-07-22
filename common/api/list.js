@@ -31,3 +31,38 @@ export const update_label = (data) =>{
 		data
 	})
 }
+
+export const get_detail = (data) =>{
+	return $http({
+		url:'get_detail',
+		data
+	})
+}
+
+export const update_comment = (data) =>{
+	return $http({
+		url:'update_comment',
+		data
+	})
+}
+
+export const get_comments = (data) =>{
+	return $http({
+		url:'get_comments',
+		data
+	})
+}
+
+export const update_author = (data) =>{
+	return $http({
+		url:'update_author',
+		data
+	})
+}
+export const update_thumsup = (data) =>{
+	return $http({
+		url:'update_thumsup',
+		data
+	})
+}
+

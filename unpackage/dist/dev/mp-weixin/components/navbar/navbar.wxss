@@ -60,7 +60,8 @@
           align-items: center;
   padding: 0 15px;
   height: 45px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .navbar .navbar-fixed .navbar-content .navbar-search {
   display: -webkit-box;
