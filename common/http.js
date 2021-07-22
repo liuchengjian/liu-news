@@ -1,3 +1,4 @@
+//封装通用$http
 export default function $http(options){
 	const{ url , data } = options
 	const dataObj = {
